@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <!-- ion-back-button avec defaultHref va retourner 'utlisateur vers /annonces-->
+  <ion-toolbar
+    ><ion-buttons slot="start"
+      ><ion-back-button
+        name="arrow-back-outline"
+        defaultHref="/annonces"
+      ></ion-back-button>
+    </ion-buttons>
+    <ion-title class="d-inline-flex p-2 bd-highlight">
+      Annonce-Details</ion-title
+    >
+    <!-- on a deja recuperer l'email du user de a partir de local storage et maintenant on va le comparer avec le mail du createur de l'annonce si ils sont les memes on affiche le boutton du suppression-->
+    <ion-button
+      *ngIf="userEmail==annonce.createdBy"
+      slot="end"
+      (click)="deleteAnnonce()"
+      ><ion-icon name="trash-outline" color="danger"></ion-icon
+    ></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-margin">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" offset="0" class="container">
+        <div class="ion-margin">
+          <h1>{{annonce.title}}</h1>
+          <div>
+            <br />
+            <p>{{annonce.description}}</p>
+          </div>
+          <br />
+        </div> </ion-col></ion-row
+  ></ion-grid>
+</ion-content>
